@@ -7,6 +7,9 @@
     <groupId>com.kblive</groupId>
     <artifactId>kblive</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>kblive-usersystem</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>kblive</name>
