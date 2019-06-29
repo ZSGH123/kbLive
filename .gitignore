@@ -6,4 +6,4 @@
 .idea
 *.iml
 out
-*/target
+kblive-usersystem/*/target
