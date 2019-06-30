@@ -1,5 +1,6 @@
 package com.kblive.usersystem.common.db;
 
+import com.alibaba.cobarclient.dao.MysdalBaseDao;
 import com.ibatis.sqlmap.client.SqlMapExecutor;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
