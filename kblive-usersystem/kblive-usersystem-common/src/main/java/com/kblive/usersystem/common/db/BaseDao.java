@@ -100,25 +100,25 @@ public class BaseDao extends MysdalBaseDao {
         }
     }
 
-//    public void updateBatch(final List list, final String statement) {
-//        if (CollectionUtils.isNotEmpty(list)) {
-//            getSqlMapClientTemplate().execute(new SqlMapClientCallback() {
-//
-//                public Object doInSqlMapClient(SqlMapExecutor executor)
-//                        throws SQLException {
-//                    executor.startBatch();
-//                    for (int i = 0; i < list.size(); i++) {
-//                        executor.update(statement, list.get(i));
-//
-//                        if (i != 0 && i % BATCH_SIZE == 0) {
-//                            executor.executeBatch();
-//                        }
-//                    }
-//                    executor.executeBatch();
-//                    return null;
-//                }
-//
-//            });
-//        }
-//    }
+    public void updateBatch(final List list, final String statement) {
+        if (CollectionUtils.isNotEmpty(list)) {
+            getSqlMapClientTemplate().execute(new SqlMapClientCallback() {
+
+                public Object doInSqlMapClient(SqlMapExecutor executor)
+                        throws SQLException {
+                    executor.startBatch();
+                    for (int i = 0; i < list.size(); i++) {
+                        executor.update(statement, list.get(i));
+
+                        if (i != 0 && i % BATCH_SIZE == 0) {
+                            executor.executeBatch();
+                        }
+                    }
+                    executor.executeBatch();
+                    return null;
+                }
+
+            });
+        }
+    }
 }
