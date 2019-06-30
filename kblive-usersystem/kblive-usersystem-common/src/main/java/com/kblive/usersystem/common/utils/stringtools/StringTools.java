@@ -1,5 +1,8 @@
 package com.kblive.usersystem.common.utils.stringtools;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * title: StringTools
  * projectName kbLive
@@ -37,4 +40,30 @@ public class StringTools {
                     + String.valueOf((size % 100)) + "GB";
         }
     }
+
+    /**
+     * 截取字符串
+     *
+     * @param srcStr   源字符串
+     * @param endIndex 结束索引
+     * @return 截取后的
+     */
+    public synchronized static String subString(String srcStr, Integer endIndex) {
+        int len = srcStr.length();
+        if (endIndex > len) {
+            return srcStr;
+        }
+        return srcStr.substring(0, endIndex);
+    }
+
+    public static String replaceBlank(String str) {
+        String dest = "";
+        if (str != null) {
+            Pattern p = Pattern.compile("\t|\r|\n");
+            Matcher m = p.matcher(str);
+            dest = m.replaceAll("");
+        }
+        return dest;
+    }
+
 }
