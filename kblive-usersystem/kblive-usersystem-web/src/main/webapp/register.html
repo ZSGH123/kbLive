@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>看吧注册</title>
+		<link href="css/register.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="js/register.js" ></script>
+	</head>
+	<body id="body">
+		<div id="box">
+		      <!--
+              	作者：2671242147@qq.com
+              	时间：2018-12-14
+              	描述：顶部
+              -->
+			  <div id="top">
+			  	我是顶部
+			  </div>
+			  <!--
+              	作者：2671242147@qq.com
+              	时间：2018-12-14
+              	描述：中间
+              -->
+			  <div id="center">
+                <div id="registerbox">
+                	<br />
+                    <p>用户注册</p>
+                    <div align="center">
+                      <form name="registerform" method="post" action="student.html" enctype="application/x-www-form-urlencoded" target="_blank">
+                         <table  border="0" cellspacing="4" bordercolor="burlywood">
+                         	<!--
+                             	作者：2671242147@qq.com
+                             	时间：2018-12-16
+                             	描述：账号
+                             -->
+			                <tr><td align="left"  colspan="3"><font class="myfont">手机号</font></td></tr>
+			                <tr>
+			                   <td align="left" colspan="2"><input id="phone" type="text" name="phone" placeholder="填写你手机号码作为登录帐号"/></td>	
+			                   <td align="left" width="52px"> 
+			  	                <span id="one" style="color: limegreen;"></span>
+                               </td>
+			                </tr>
+                        	<tr align="left"><td colspan="3">
+			  						<span id="two" style="font-size: 13px;color: crimson;"></span>
+			  				</td></tr>
+			  				<!--
+                              	作者：2671242147@qq.com
+                              	时间：2018-12-16
+                              	描述：用户名
+                              -->
+			                <tr><td align="left"  colspan="3"><font class="myfont">用户名</font></td></tr>
+			                <tr>
+			                   <td align="left" colspan="2"><input id="userName" type="text" name="username" placeholder="中、英文均可、至少6个字符、最长18个字符"/></td>	
+			                   <td align="left" width="52px"> 
+			  	                <span id="three" style="color: limegreen;"></span>
+                               </td>
+			                </tr>
+                        	<tr align="left"><td colspan="3">
+			  						<span id="four" style="font-size: 13px;color: crimson;"></span>
+			  				</td></tr>
+			                <!--
+                            	作者：2671242147@qq.com
+                            	时间：2018-12-16
+                            	描述：密码
+                            -->
+			                <tr><td align="left"  colspan="3"><font class="myfont">密码</font></td></tr>
+			                <tr>
+			                   <td align="left" colspan="2"><input id="pwd" type="password" name="password" placeholder="6-20位要至少要包含一个大小写字母，及一个数字"/></td>	
+			                   <td align="left" width="52px"> 
+			  	                <span id="five" style="color: limegreen;"></span>
+                               </td>
+			                </tr>
+                        	<tr align="left"><td colspan="3">
+			  						<span id="six" style="font-size: 13px;color: crimson;"></span>
+			  				</td></tr>
+			  				<!--
+                              	作者：2671242147@qq.com
+                              	时间：2018-12-16
+                              	描述：重复密码
+                              -->
+			                <tr><td align="left"  colspan="3"><font class="myfont">重复密码</font></td></tr>
+			                <tr>
+			                   <td align="left" colspan="2"><input id="repwd" type="password" name="repassword" placeholder="6-20位要至少要包含一个大小写字母，及一个数字"/></td>	
+			                   <td align="left" width="52px"> 
+			  	                <span id="seven" style="color: limegreen;"></span>
+                               </td>
+			                </tr>
+                        	<tr align="left"><td colspan="3">
+			  						<span id="eight" style="font-size: 13px;color: crimson;"></span>
+			  				</td></tr>			  				
+                            <!--
+                            	作者：2671242147@qq.com
+                            	时间：2018-12-16
+                            	描述：验证码
+                            -->
+			                <tr><td align="left"  colspan="3"><font class="myfont">验证码</font></td></tr>
+			                <tr>
+			                   <td align="left"><input id="code" class="myinput" type="text" name="code" placeholder="验证码"/></td>	
+			                   <td align="left"> 
+			  	                <input id="getcode" class="myinputbtn" type="button" name="getcode" value="获取短信验证码"/>
+                               </td>
+                               <td align="left" width="52px"> 
+			  	                <span id="ten" style="color: limegreen;"></span>
+                               </td>
+			                </tr>
+                        	<tr align="left"><td colspan="3">
+			  						<span id="nine" style="font-size: 13px;color: crimson;"></span>
+			  				</td></tr>
+			  				
+			  				<tr align="left" height="25"><td colspan="3"></td></tr>
+			  				<!--
+                              	作者：2671242147@qq.com
+                              	时间：2018-12-16
+                              	描述：注册
+                             -->
+			                <tr>
+			                  	<td align="center"  colspan="3">
+			  	                <input id="register" class="mybtn" type="button" name="submit" value="注册" />
+			                    </td>	
+			                </tr>
+			                
+			                <tr align="left" height="25"><td colspan="3"></td></tr>
+                            <!--
+                            	作者：2671242147@qq.com
+                            	时间：2018-12-16
+                            	描述：第三方注册
+                            -->                       
+			  					<tr height="30px">
+			                     <td align="center"  colspan="3">
+			  	                   <a href="#" class="weibo"><i class="fa fa-weibo fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+			  	                   <a href="#" class="qq"><i class="fa fa-qq fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+			  	                   <a href="#" class="wenxin"><i class="fa fa-weixin fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+			                     </td>	
+			                    </tr>                                  
+			  					<tr>
+			                     <td align="center"  colspan="3">
+			  	                        <font size="1px">第三方快速注册</font>
+			                     </td>	
+			                    </tr>                            
+                            
+                         </table>
+                      </form>
+                    </div>
+		        </div>    
+			  </div>             
+              <!--
+              	作者：2671242147@qq.com
+              	时间：2018-12-14
+              	描述：底部上
+              -->
+			  <div id="bottomtop">
+			  	我是底部上  
+			  </div>              
+              
+			  <!--
+              	作者：2671242147@qq.com
+              	时间：2018-12-14
+              	描述：底部下
+              -->              
+			  <div id="bottom">
+			  	我是底部下
+			  </div>			  
+		</div>
+	</body>
+</html>

@@ -1,0 +1,442 @@
+	/*瀵艰埅鏉�*/
+	.clear{
+		float: none;
+	}
+	#container_top{
+		margin-left: 0px;
+		margin-right: 0px;
+		/*width: 1366px;*/
+		height: 555px;
+			
+	}
+	#container {
+		margin-left: 190px;
+		/*width: 980px;*/
+		padding: 0px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	
+	}
+	
+	#xialaList{
+		
+	
+		margin-right: 10px;
+		padding-right: 40px;
+	}
+	#logo{
+	    width: 140px;
+	}
+	
+
+	
+	#list{
+		padding: 0px;
+		width: 320px;
+	}
+	
+	#list #shouyetop{
+		font-size: 20px;
+		border-radius: 20px;
+		background-color: orange;
+		color: white;
+	}
+	 
+	
+.input-group input{
+	margin-left: 0px;
+	margin-top: 5px;
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	border-right: none;
+	border-color: orange;
+}
+
+.input-group button{
+	margin-top: 5px;
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	border-color: orange;
+	background-color: orange;
+}
+
+#logn{
+	margin-top: 11px;
+	font-size: 16px;
+	float: right;
+	/**width: 200px;*/
+}
+
+ a:hover{
+	text-decoration: none;
+	color: orange;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+	
+}
+/*--------------------------------------------------------------------------------------*/
+/*鐩存挱鎾斁鍣�*/
+
+#view{
+	margin-left: 175px;
+		height: 470px;
+		padding: 0px;	
+		margin-top: 50px;
+}
+
+#view-left{
+	background-color: yellow;
+	height: 470px;
+}
+
+#view-rigth{
+	height: 470px;
+	background-color: gray;
+}
+
+#view-rigth img{
+	border-radius: 8px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+/*------------------------------------------------------------------------------------*/
+/*娓告垙鍒嗙被*/
+#game_type{
+	margin-left: 193px;
+	margin-top:15px;
+	width: 980px;
+}
+ 
+ #game_type_left{
+ 	padding: 0px;
+ 	width: 485px;
+ 	height: 140px;
+ 	margin-right: 8px;
+ } 
+ 
+ #game_type_right{
+ 	padding: 0px;
+ 	width: 485px;
+ 	height: 140px;
+ } 
+ 
+ #game_type_top{
+ 	width: 485px;
+ 	height: 35px;
+ 	margin-left: 0px;
+ }
+ 
+ #game_type_top_logo{
+ 	width: 35px;
+ 	padding: 0px;
+ }
+ 
+ #game_type_top_title{
+ 	font: 18px;
+ 	width: 80px;
+ 	padding: 0px;
+ 	margin-top: 5px;
+ }
+ /*缃戞父绔炴妧*/
+ #game_type_top_button_webgame{
+ 	width: 75px;
+ 	padding: 0px;
+ 	margin-top: 7px;
+ 	font-size: 10px;
+ }
+ 
+#game_type_top_button_webgame input{
+	border-radius: 10px;
+}
+
+#game_type_top_button_webgame input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#game_type_foot_webgame {
+	margin-top: 5px;
+	padding: 0px;
+}
+
+#game_type_foot_webgame_img{
+	margin-right: 2px;
+	width: 160px;
+}
+/*鍗曟満娓告垙*/
+#game_type_top_button_clickgame{
+ 	width: 75px;
+ 	padding: 0px;
+ 	margin-top: 7px;
+ 	font-size: 10px;
+ }
+ 
+#game_type_top_button_clickgame input{
+	border-radius: 10px;
+}
+
+#game_type_top_button_clickgame input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#game_type_foot_clickgame {
+	margin-top: 5px;
+	padding: 0px;
+}
+
+#game_type_foot_clickgame_img{
+	margin-right: 2px;
+	width: 160px;
+}
+/*濞变箰澶╁湴*/
+#game_type_top_button_entertainment{
+ 	width: 75px;
+ 	padding: 0px;
+ 	margin-top: 7px;
+ 	font-size: 10px;
+ }
+ 
+#game_type_top_button_entertainment input{
+	border-radius: 10px;
+}
+
+#game_type_top_button_entertainment input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#game_type_foot_entertainment {
+	margin-top: 5px;
+	padding: 0px;
+}
+
+#game_type_foot_entertainment_img{
+	margin-right: 2px;
+	width: 160px;
+}
+
+/*鎵嬫満娓告垙*/
+
+#game_type_top_button_mobilegame{
+ 	width: 75px;
+ 	padding: 0px;
+ 	margin-top: 7px;
+ 	font-size: 10px;
+ }
+ 
+#game_type_top_button_mobilegame input{
+	border-radius: 10px;
+}
+
+#game_type_top_button_mobilegame input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#game_type_foot_mobilegame {
+	margin-top: 5px;
+	padding: 0px;
+}
+
+#game_type_foot_mobilegame_img{
+	margin-right: 2px;
+	width: 160px;
+}
+/*------------------------------------------------------*/
+/*鐑棬鍒嗙被*/
+#hot_classify{
+	margin-left: 193px;
+	margin-top:30px;
+	width: 980px;
+	height: 45px;
+	padding: 0px;
+}
+
+#hot_classify_logo{
+	width: 45px;
+	padding: 0px;
+}
+
+#hot_classify_title{
+	font-size: 25px;
+	margin-top: 5px;
+	padding: 0px;
+	width: 110px;
+}
+
+#hot_classify_button{
+	
+	margin-top: 10px;
+	width: 100px;
+}
+
+#hot_classify_button input{
+	border-radius: 10px;
+}
+
+#hot_classify_button input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#hot_classify_more{
+	font-size: 14px;
+	padding-right: 0px;
+	margin-top: 10px;
+}
+
+#hot_classify_game{
+	margin-left: 193px;
+	margin-top:10px;
+	width: 980px;
+	height: 210px;
+	padding: 0px;
+}
+
+#hot_classify_game_img:hover{
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#hot_classify_game_img{
+	width: 125px;
+	text-align: center;
+	padding: 0px;
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+/*-----------------------------------------------------------*/
+/*鑻遍泟鑱旂洘*/
+
+#lol_list{
+	margin-left: 193px;
+	margin-top:20px;
+	width: 980px;
+	height: 45px;
+	padding: 0px;
+}
+
+#lol_list_logo{
+	width: 45px;
+	padding: 0px;
+}
+
+#lol_list_title{
+	font-size: 25px;
+	margin-top: 5px;
+	padding: 0px;
+	width: 110px;
+}
+
+#lol_list_button{
+	margin-top: 10px;
+	width: 80px;
+}
+
+#lol_list_button input{
+	border-radius: 10px;
+}
+
+#lol_list_button input:hover{
+	background-color: orange;
+	color: white;
+}
+
+#lol_list_more{
+	font-size: 14px;
+	width: 250px;
+	padding-left: 200px;
+	padding-right: 0px;
+	margin-top: 20px;
+}
+
+#lol_list_game{
+	margin-left: 193px;
+	margin-top:5px;
+	width: 980px;
+	height: 190px;
+	padding: 0px;
+}
+
+#lol_list_img{
+	margin: 0px;
+	padding-left: 5px;
+font-size: 15px;
+
+}
+
+#lol_list_img:hover{
+	box-shadow: 5px 5px 2px #888888;
+}
+
+#lol_list_img span{
+	text-align: right;
+	display: block;
+	width: 100px;
+	margin: 0px;
+	float: right;
+	text-align: right;
+	
+	
+}
+
+/*<---------------------------------------------------------------->*/
+/*搴曢儴*/
+
+#foot{
+    margin-top: 3px;
+	
+	height: 200px;
+	background-color: #222222;
+	padding: 0px;
+	color: white;
+	font-size: 14px;
+}
+
+#foot a{
+	color: #CCCCCC;
+	text-decoration: none;
+}
+#foot a:hover{
+	text-decoration: none;
+	color: orange;
+}
+
+
+#foot_first{
+	margin-top: 20px;
+	
+}
+
+#foot_second{
+	margin-top: 12px;
+	
+}
+
+#foot_line{
+	margin-top: 20px;
+	margin-left: 115px;
+	margin-right: 145px;
+            border-bottom: 1px solid white;
+}
+
+#foot_we{
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+#foot_security{
+	margin-top: 10px;
+	font-size: 11px;
+	text-align: center;
+}
+
+#foot_address{
+	margin-top: 5px;
+	font-size: 11px;
+	text-align: center;
+}

@@ -1,0 +1,193 @@
+
+
+#xialaList{
+	
+	margin-left: 0px;
+	padding-right: 5px;
+}
+/* Navigation Bar */
+#menu {
+    list-style: none;
+
+    margin-top: 5px;
+    width: 60px;
+    height: 40px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+#menu #but {
+    
+    text-align: center;
+  display: block;
+    width: 60px;
+    height: 40px;
+   
+}
+
+#menu li:hover a {
+    color: #161616;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+.dropdown_1column, .dropdown_2columns, .dropdown_3columns, .dropdown_4columns, .dropdown_5columns {
+    margin: 4px auto;
+    float: left;
+    position: absolute;
+    left: -999em;
+    text-align: left;
+    padding: 10px 5px;
+    border-top: 2px solid orange;
+    background: #F4F4F4;
+    border-radius: 0 5px 5px 5px;
+}
+
+.dropdown_1column {
+    width: 100px;
+}
+
+.dropdown_2columns {
+    width: 280px;
+}
+
+.dropdown_3columns {
+    width: 280px;
+}
+
+.dropdown_4columns {
+    width: 560px;
+}
+
+.dropdown_5columns {
+    width: 700px;
+}
+/*weizhi */
+#menu li:hover .dropdown_1column, #menu li:hover .dropdown_2columns, #menu li:hover .dropdown_3columns, #menu li:hover .dropdown_4columns, #menu li:hover .dropdown_5columns {
+    left: 2px;
+    top: auto;
+}
+
+/* Columns */
+
+.col_1, .col_2, .col_3, .col_4, .col_5 {
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.col_1 {
+    width : 75px;
+}
+
+.col_2 {
+    width: 270px;
+}
+
+.col_3 {
+    width: 270px;
+}
+
+.col_4 {
+    width: 550px;
+}
+
+.col_5 {
+    width: 690px;
+}
+
+#menu li:hover .align_right {
+    left: auto;
+    right: -1px;
+    top: auto;
+}
+
+/* Drop Down Content Stylings */
+
+#menu p, #menu h2,  #menu ul li {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 21px;
+    font-size: 12px;
+   
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#menu h2 {
+	display: block;
+	color: orange;
+    font-size: 14px;
+    font-weight: 100px;
+    width: 260px;
+    letter-spacing: -1px;
+    margin: 7px 0 14px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    
+}
+
+#menu li:hover div a {
+    font-size: 10px;
+    color: gray;
+}
+
+#menu li:hover div a:hover {
+    color: orange;
+}
+
+#menu li ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+#menu li ul li {
+    font-size: 12px;
+    line-height: 14px;
+    position: relative;
+    text-shadow: 1px 1px 1px $white;
+    padding: 0;
+    margin-left: 5px;
+    float: none;
+    text-align: left;
+    width: 130px;
+}
+
+#menu li ul li:hover {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/**/
+#menu #but .greybox li {
+    background: #F4F4F4;
+    border: 1px solid #bbbbbb;
+    margin: 0 0 4px 0;
+    padding: 4px 6px;
+    width: 70px;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#menu #but .greybox li:hover {
+    background: $white;
+    border: 1px solid #aaaaaa;
+    padding: 4px 6px;
+    margin: 0 0 4px 0;
+     font-size: 10px;
+}
+
+#but input{
+	border-radius: 20px;
+	font-size: 20px;
+	
+}
+
+#but input:hover{
+	color: white;
+	background-color: orange;
+}
+

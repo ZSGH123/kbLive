@@ -1,0 +1,124 @@
+div.titlebotborder{
+	overflow: hidden;
+    width: 100%;
+    margin-top: 7px;
+}
+div.titlebotborder .border1{
+	width: 35px;
+    height: 3px;
+    background-color: #fb8302;
+}
+div.titlebotborder .border2{
+	width: 99.2%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+div.panel-body #liveroom_box,#liveroom_box_online{
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+}
+div#rightcontent{
+	margin-left: 250px;
+}
+#liveroom_box #liveroom{
+		display:  inline-block;
+		width: 250px;
+		height: 200px;
+		margin: 0px 10px 15px 0px;
+}
+#liveroom_box_online #liveroom{
+		display:  inline-block;
+		width: 250px;
+		height: 200px;
+		margin: 0px 10px 15px 0px;
+}
+.title{
+	display:  inline;
+	font-size: 14px;
+	margin:0px 0px 5px 0px;
+	width: 70%;
+}
+
+span.tag{
+    width: 60px;
+    font-size: 12px;
+
+}
+a{
+	color:  midnightblue;
+}
+#atag{
+	color:  #f60;
+}
+a:hover{
+	text-decoration: none;
+	color:   orange;
+}
+#atag :hover{
+	text-decoration: none;
+	color:  #D6E9C6;
+}
+
+div#btn_box{
+	margin: 0px 0px 7px 10px;
+}
+button#btn{
+	margin-right: 10px;
+	border-radius: 5px;
+}
+button#btn:hover{
+	color:   orange;
+	border-color: orange;
+}
+button#btn:active{
+	color:   orange;
+	border-color: orange;
+}
+img.icon{
+	margin-left: 3px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+	width :20px;
+}
+img.hurdle-icon{
+	margin-left: 12px;
+	margin-right: 5px;
+	margin-bottom: 3px;
+	width :20px;
+}
+
+#left_btn_box #left_btn{
+	padding: 2px;
+	margin: 3px 3px 3px 3px;
+	border-radius: 3px;
+	font-size: 12px;
+	width: 54px;
+}
+#left_btn_box #left_btn:hover{
+	color:   orange;
+	border-color: orange;
+}
+
+div#ad{
+	margin: 10px 0px 10px 0px;
+	text-align:  center;
+}
+#kb-title{
+	text-align: center;
+	font-size: 36px;
+	font-family: "Î¢ÈíÑÅºÚ";
+	color: white;
+	font-stretch: 100%;
+	font-weight: 700;
+}	
+#kb-title-step{
+	font-size: 33px;
+	color:  whitesmoke;
+}
+#kb-title-step-info{
+	font-size: 28px;
+	color:  whitesmoke;
+    margin: 50px 0px 50px 0px;
+}		

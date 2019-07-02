@@ -1,0 +1,105 @@
+body{margin:0px;}
+
+#box{
+	  margin: 0px auto;	
+}
+/**
+ * 上部
+ */
+#top{
+	background-color: midnightblue;
+	height: 50px;
+}
+/**
+ * 中间
+ */
+#center{
+	height: 700px;
+}
+
+#center #registerbox{
+	background-color: #DCDCDC;
+	height: 680px;
+	width: 400px;
+	margin: 0px auto;
+	text-align: center;
+}
+p{
+	margin-top: 0px;
+	margin-bottom: 20px;
+	font-size: 25px;
+}
+
+/**
+ * 底部上
+ */
+#bottomtop{
+	background-color: lightblue;
+	height: 200px;
+}
+/**
+ * 底部下
+ */
+#bottom{
+	background-color:  darkorange;
+	height: 100px;
+}
+
+
+
+input{
+	border-width: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 30px;
+	width: 300px;
+	border-radius: 5px;
+}
+.myinput{
+	width: 137px;
+}
+.myinputbtn{
+	width: 150px;
+	height: 34px;
+	border-radius: 5px;
+	background:   #1E90FF;
+}
+.myinputbtn:hover{
+				background:  #4169E1;
+			}
+.mybtn{
+		font-weight: bold;
+		color:   white;
+		background:  royalblue;
+		border-radius: 4px;
+		height: 35px;
+		width: 320px;
+	}
+.mybtn:hover{
+				background: dodgerblue;
+			}
+a{
+	text-decoration: none;
+	color: limegreen;
+}
+a:hover{
+	color: green;
+}
+a.weibo{
+	color: #D3D3D3;
+}
+a.qq{
+	color: #D3D3D3;
+}
+a.wenxin{
+	color: #D3D3D3;
+}
+a.weibo:hover{
+	color: red;
+}
+a.qq:hover{
+	color: dodgerblue;
+}
+a.wenxin:hover{
+	color: limegreen;
+}
