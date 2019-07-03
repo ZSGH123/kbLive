@@ -25,7 +25,7 @@
 
         <dependency>
             <groupId>com.kblive</groupId>
-            <artifactId>kblive-usersystem-service</artifactId>
+            <artifactId>kblive-usersystem-services</artifactId>
             <version>${project.version}</version>
         </dependency>
 
