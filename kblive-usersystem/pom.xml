@@ -16,8 +16,7 @@
         <module>kblive-usersystem-common</module>
         <module>kblive-usersystem-model</module>
         <module>kblive-usersystem-dao</module>
-        <module>kblive-usersystem-service</module>
-        <module>kblive-usersystem-service</module>
+        <module>kblive-usersystem-services</module>
     </modules>
 
 

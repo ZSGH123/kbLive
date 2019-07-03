@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>kblive-usersystem-service</artifactId>
-    <name>kblive-usersystem-service</name>
+    <artifactId>kblive-usersystem-services</artifactId>
+    <name>kblive-usersystem-services</name>
     <packaging>jar</packaging>
 
     <properties>
@@ -25,7 +25,6 @@
             <artifactId>kblive-usersystem-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
