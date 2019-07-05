@@ -12,5 +12,7 @@ import java.util.Set;
  ***/
 public class HttpTool {
 
-
+    public static void main(String[] args) {
+        System.out.println("nihao");
+    }
 }
