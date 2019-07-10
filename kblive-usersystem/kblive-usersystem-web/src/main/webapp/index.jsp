@@ -48,7 +48,7 @@
                 	描述：头部结束
                 -->	    
 		<video id="video-box" poster="img/background.jpg" autoplay muted loop class="vidbacking" >
-			<source src="video/eason.mp4" type="video/mp4">
+			<source src="//s3.pstatp.com/aweme/resource/web/static/image/index/tvc-v2_30097df.mp4" type="video/mp4">
 		           你的浏览器不支持该视频播放
 		</video>	
 		<div class="container-fluid">
