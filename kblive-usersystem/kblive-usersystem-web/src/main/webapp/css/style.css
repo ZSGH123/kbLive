@@ -117,7 +117,7 @@
 	display: block;
 	color: orange;
     font-size: 14px;
-    font-weight: 100px;
+    font-weight: 100;
     width: 260px;
     letter-spacing: -1px;
     margin: 7px 0 14px;
@@ -145,7 +145,7 @@
     font-size: 12px;
     line-height: 14px;
     position: relative;
-    text-shadow: 1px 1px 1px $white;
+    text-shadow: 1px 1px 1px  #ffffff;
     padding: 0;
     margin-left: 5px;
     float: none;
@@ -173,7 +173,7 @@
 }
 
 #menu #but .greybox li:hover {
-    background: $white;
+    background-color: white;
     border: 1px solid #aaaaaa;
     padding: 4px 6px;
     margin: 0 0 4px 0;
