@@ -1,10 +1,12 @@
 package com.kblive.usersystem.web.threadlocal;
 
+import com.kblive.usersystem.model.user.KbliveUser;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * title: GlobalConstant
+ * title: HttpContext
  * projectName kbLive
  * description: Http上下文
  * author 2671242147@qq.com
@@ -21,7 +23,7 @@ public class HttpContext {
 
     private HttpServletRequest request;
     private HttpServletResponse response;
-
+    private KbliveUser kbliveUser;
 
     private HttpContext() {
     }
@@ -48,5 +50,13 @@ public class HttpContext {
 
     public void setResponse(HttpServletResponse response) {
         this.response = response;
+    }
+
+    public KbliveUser getKbliveUser() {
+        return kbliveUser;
+    }
+
+    public void setKbliveUser(KbliveUser kbliveUser) {
+        this.kbliveUser = kbliveUser;
     }
 }

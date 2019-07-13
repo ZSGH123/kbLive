@@ -41,7 +41,7 @@
 
     <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>classpath:spring/localdatasource.properties</value>
+            <value>classpath:spring/test.properties</value>
         </property>
         <property name="fileEncoding">
             <value>UTF-8</value>
@@ -51,6 +51,13 @@
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
         <property name="configLocation">
             <value>classpath:ibatis/sqlmap-config.xml</value>
+        </property>
+
+        <property name="mappingLocations">
+            <list>
+                <value>classpath*:/ibatis/sqlmap/*.xml</value>
+                <value>classpath*:/ibatis/sqlmap/*/*-sqlmap.xml</value>
+            </list>
         </property>
 
         <!--为Spring创建的SqlMapClient对象指定数据源-->

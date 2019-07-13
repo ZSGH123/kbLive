@@ -36,7 +36,6 @@
                   value="20"/>
     </bean>
 
-    <!-- ################################################################################################### -->
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
@@ -44,13 +43,12 @@
         <property name="configLocation">
             <value>classpath:ibatis/sqlmap-config.xml</value>
         </property>
-        <!--
         <property name="mappingLocations">
             <list>
                 <value>classpath*:/ibatis/sqlmap/*.xml</value>
+                <value>classpath*:/ibatis/sqlmap/*/*-sqlmap.xml</value>
             </list>
         </property>
-        -->
         <!--为Spring创建的SqlMapClient对象指定数据源-->
         <property name="dataSource">
            <ref bean="dataSource"/>

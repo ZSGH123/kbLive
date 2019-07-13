@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="KbliveUser">
+    <!-- Alias Map Defined -->
+    <typeAlias alias="KbliveUserQuery" type="com.kblive.usersystem.common.query.user.KbliveUserQuery"/>
+    <typeAlias alias="KbliveUser" type="com.kblive.usersystem.model.user.KbliveUser"/>
+    <resultMap id="kbliveUser" class="KbliveUser">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPhoneNumber" column="user_phone_number"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="modifyDate" column="modify_date"/>
+        <result property="userRealName" column="user_real_name"/>
+        <result property="userSex" column="user_sex"/>
+        <result property="userIdcard" column="user_idcard"/>
+        <result property="userWeiboId" column="user_weibo_id"/>
+        <result property="userQqId" column="user_qq_id"/>
+        <result property="userIcon" column="user_icon"/>
+        <result property="userAlipay" column="user_alipay"/>
+        <result property="userBankCard" column="user_bank_card"/>
+        <result property="status" column="status"/>
+        <result property="createDate" column="create_date"/>
+        <result property="loginTimes" column="login_times"/>
+        <result property="lastLoginDate" column="last_login_date"/>
+        <result property="userNote" column="user_note"/>
+    </resultMap>
+    <!-- Select SQL -->
+    <sql id="kbliveUser.selector">
+        SELECT
+        <dynamic>
+            <isNotEmpty property="fields">
+                $fields$
+            </isNotEmpty>
+            <isEmpty property="fields">
+                id , user_name , user_phone_number , user_password , modify_date , user_real_name , user_sex ,
+                user_idcard , user_weibo_id , user_qq_id , user_icon , user_alipay , user_bank_card , status ,
+                create_date , login_times , last_login_date , user_note
+            </isEmpty>
+        </dynamic>
+        FROM kblive_user
+    </sql>
+    <sql id="kbliveUserList.where">
+        <dynamic prepend=" WHERE ">
+            <isNotEmpty property="id" prepend=" AND ">
+                id=#id#
+            </isNotEmpty>
+            <isNotEmpty property="userName" prepend=" AND ">
+                user_name=#userName#
+            </isNotEmpty>
+            <isNotEmpty property="userPhoneNumber" prepend=" AND ">
+                user_phone_number=#userPhoneNumber#
+            </isNotEmpty>
+            <isNotEmpty property="userPassword" prepend=" AND ">
+                user_password=#userPassword#
+            </isNotEmpty>
+            <isNotEmpty property="modifyDateStart" prepend=" AND ">
+                <![CDATA[  modify_date >= #modifyDateStart# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="modifyDateEnd" prepend=" AND ">
+                <![CDATA[  modify_date <= #modifyDateEnd# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="modifyDateEqual" prepend=" AND ">
+                <![CDATA[  modify_date = #modifyDateEqual# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="userRealName" prepend=" AND ">
+                user_real_name=#userRealName#
+            </isNotEmpty>
+            <isNotEmpty property="userSex" prepend=" AND ">
+                user_sex=#userSex#
+            </isNotEmpty>
+            <isNotEmpty property="userIdcard" prepend=" AND ">
+                user_idcard=#userIdcard#
+            </isNotEmpty>
+            <isNotEmpty property="userWeiboId" prepend=" AND ">
+                user_weibo_id=#userWeiboId#
+            </isNotEmpty>
+            <isNotEmpty property="userQqId" prepend=" AND ">
+                user_qq_id=#userQqId#
+            </isNotEmpty>
+            <isNotEmpty property="userIcon" prepend=" AND ">
+                user_icon=#userIcon#
+            </isNotEmpty>
+            <isNotEmpty property="userAlipay" prepend=" AND ">
+                user_alipay=#userAlipay#
+            </isNotEmpty>
+            <isNotEmpty property="userBankCard" prepend=" AND ">
+                user_bank_card=#userBankCard#
+            </isNotEmpty>
+            <isNotEmpty property="status" prepend=" AND ">
+                status=#status#
+            </isNotEmpty>
+            <isNotEmpty property="createDateStart" prepend=" AND ">
+                <![CDATA[  create_date >= #createDateStart# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="createDateEnd" prepend=" AND ">
+                <![CDATA[  create_date <= #createDateEnd# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="createDateEqual" prepend=" AND ">
+                <![CDATA[  create_date = #createDateEqual# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="loginTimes" prepend=" AND ">
+                login_times=#loginTimes#
+            </isNotEmpty>
+            <isNotEmpty property="lastLoginDateStart" prepend=" AND ">
+                <![CDATA[  last_login_date >= #lastLoginDateStart# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="lastLoginDateEnd" prepend=" AND ">
+                <![CDATA[  last_login_date <= #lastLoginDateEnd# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="lastLoginDateEqual" prepend=" AND ">
+                <![CDATA[  last_login_date = #lastLoginDateEqual# ]]>
+            </isNotEmpty>
+            <isNotEmpty property="userNote" prepend=" AND ">
+                user_note=#userNote#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 用#号会导致druid连接池报错 -->
+    <sql id="kbliveUserList.order">
+        <dynamic prepend=" ORDER BY ">
+            <isNotEmpty property="orderFields">
+                <iterate property="orderFields" conjunction="," open="" close="">
+                    $orderFields[].fieldName$ $orderFields[].order$
+                </iterate>
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <sql id="kbliveUserList.limit">
+        <dynamic prepend=" LIMIT  ">
+            <isNotEmpty property="startRow">
+                #startRow#,#pageSize#
+            </isNotEmpty>
+        </dynamic>
+    </sql>
+
+    <!-- 根据主键查询 -->
+    <select id="KbliveUser.getKbliveUserByKey" resultMap="kbliveUser"
+            parameterClass="hashMap">
+        SELECT id , user_name , user_phone_number , user_password , modify_date , user_real_name , user_sex ,
+        user_idcard , user_weibo_id , user_qq_id , user_icon , user_alipay , user_bank_card , status , create_date ,
+        login_times , last_login_date , user_note FROM kblive_user
+        WHERE
+        id=#id#
+    </select>
+    <select id="KbliveUser.getKbliveUsersByKeys" resultMap="kbliveUser"
+            parameterClass="hashMap">
+        SELECT id , user_name , user_phone_number , user_password , modify_date , user_real_name , user_sex ,
+        user_idcard , user_weibo_id , user_qq_id , user_icon , user_alipay , user_bank_card , status , create_date ,
+        login_times , last_login_date , user_note FROM kblive_user
+        WHERE
+        id in
+        <iterate conjunction="," open="(" close=")" property="keys">
+            #keys[]#
+        </iterate>
+    </select>
+
+    <!-- 根据主键删除 -->
+    <delete id="KbliveUser.deleteByKey" parameterClass="hashMap">
+        DELETE FROM kblive_user
+        WHERE
+        id=#id#
+    </delete>
+
+    <delete id="KbliveUser.deleteByKeys">
+        DELETE FROM kblive_user
+        WHERE
+        id in
+        <iterate conjunction="," open="(" close=")" property="keys">
+            #keys[]#
+        </iterate>
+    </delete>
+
+    <!-- 根据主键更新 -->
+    <update id="KbliveUser.updateKbliveUserByKey" parameterClass="KbliveUser">
+        UPDATE kblive_user
+        <dynamic prepend="SET">
+            <isNotNull prepend="," property="id">
+                id = #id#
+            </isNotNull>
+            <isNotNull prepend="," property="userName">
+                user_name = substring(#userName#,1,50)
+            </isNotNull>
+            <isNotNull prepend="," property="userPhoneNumber">
+                user_phone_number = substring(#userPhoneNumber#,1,15)
+            </isNotNull>
+            <isNotNull prepend="," property="userPassword">
+                user_password = substring(#userPassword#,1,50)
+            </isNotNull>
+            <isNotNull prepend="," property="modifyDate">
+                modify_date = #modifyDate#
+            </isNotNull>
+            <isNotNull prepend="," property="userRealName">
+                user_real_name = substring(#userRealName#,1,50)
+            </isNotNull>
+            <isNotNull prepend="," property="userSex">
+                user_sex = substring(#userSex#,1,4)
+            </isNotNull>
+            <isNotNull prepend="," property="userIdcard">
+                user_idcard = substring(#userIdcard#,1,18)
+            </isNotNull>
+            <isNotNull prepend="," property="userWeiboId">
+                user_weibo_id = substring(#userWeiboId#,1,40)
+            </isNotNull>
+            <isNotNull prepend="," property="userQqId">
+                user_qq_id = substring(#userQqId#,1,40)
+            </isNotNull>
+            <isNotNull prepend="," property="userIcon">
+                user_icon = substring(#userIcon#,1,500)
+            </isNotNull>
+            <isNotNull prepend="," property="userAlipay">
+                user_alipay = substring(#userAlipay#,1,40)
+            </isNotNull>
+            <isNotNull prepend="," property="userBankCard">
+                user_bank_card = substring(#userBankCard#,1,40)
+            </isNotNull>
+            <isNotNull prepend="," property="status">
+                status = #status#
+            </isNotNull>
+            <isNotNull prepend="," property="createDate">
+                create_date = #createDate#
+            </isNotNull>
+            <isNotNull prepend="," property="loginTimes">
+                login_times = #loginTimes#
+            </isNotNull>
+            <isNotNull prepend="," property="lastLoginDate">
+                last_login_date = #lastLoginDate#
+            </isNotNull>
+            <isNotNull prepend="," property="userNote">
+                user_note = substring(#userNote#,1,500)
+            </isNotNull>
+        </dynamic>
+        WHERE
+        id=#id#
+    </update>
+    <!-- 分页 -->
+    <select id="KbliveUser.getKbliveUserListWithPage" parameterClass="KbliveUserQuery"
+            resultMap="kbliveUser">
+        <include refid="kbliveUser.selector"/>
+        <include refid="kbliveUserList.where"/>
+        <include refid="kbliveUserList.order"/>
+        <include refid="kbliveUserList.limit"/>
+    </select>
+    <select id="KbliveUser.getKbliveUserListCount" parameterClass="KbliveUserQuery" resultClass="int">
+        SELECT count(1) FROM kblive_user
+        <include refid="kbliveUserList.where"/>
+    </select>
+    <select id="KbliveUser.getKbliveUserList" parameterClass="KbliveUserQuery"
+            resultMap="kbliveUser">
+        <include refid="kbliveUser.selector"/>
+        <include refid="kbliveUserList.where"/>
+        <include refid="kbliveUserList.order"/>
+    </select>
+
+    <!-- 如果使用自定义字段查询,则要使用resultClass否则会出现异常-->
+    <select id="KbliveUser.getKbliveUserListWithPageFields" parameterClass="KbliveUserQuery"
+            resultClass="KbliveUser">
+        <include refid="kbliveUser.selector"/>
+        <include refid="kbliveUserList.where"/>
+        <include refid="kbliveUserList.order"/>
+        <include refid="kbliveUserList.limit"/>
+    </select>
+    <select id="KbliveUser.getKbliveUserListFields" parameterClass="KbliveUserQuery"
+            resultClass="KbliveUser">
+        <include refid="kbliveUser.selector"/>
+        <include refid="kbliveUserList.where"/>
+        <include refid="kbliveUserList.order"/>
+    </select>
+    <!--    <insert id="KbliveUser.insertKbliveUser" parameterClass="KbliveUser">
+    INSERT INTO kblive_user(
+           id ,           user_name ,           user_phone_number ,           user_password ,           modify_date ,           user_real_name ,           user_sex ,           user_idcard ,           user_weibo_id ,           user_qq_id ,           user_icon ,           user_alipay ,           user_bank_card ,           status ,           create_date ,           login_times ,           last_login_date ,           user_note         VALUES(
+            #id# ,            #userName# ,            #userPhoneNumber# ,            #userPassword# ,            #modifyDate# ,            #userRealName# ,            #userSex# ,            #userIdcard# ,            #userWeiboId# ,            #userQqId# ,            #userIcon# ,            #userAlipay# ,            #userBankCard# ,            #status# ,            #createDate# ,            #loginTimes# ,            #lastLoginDate# ,            #userNote#         )
+    </insert>
+    -->
+    <insert id="KbliveUser.insertKbliveUser" parameterClass="KbliveUser">
+        INSERT INTO kblive_user
+        <dynamic prepend="(" close=")">
+            <isNotEmpty prepend="," property="id">
+                id
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userName">
+                user_name
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userPhoneNumber">
+                user_phone_number
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userPassword">
+                user_password
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="modifyDate">
+                modify_date
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userRealName">
+                user_real_name
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userSex">
+                user_sex
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userIdcard">
+                user_idcard
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userWeiboId">
+                user_weibo_id
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userQqId">
+                user_qq_id
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userIcon">
+                user_icon
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userAlipay">
+                user_alipay
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userBankCard">
+                user_bank_card
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="status">
+                status
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="createDate">
+                create_date
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="loginTimes">
+                login_times
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lastLoginDate">
+                last_login_date
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userNote">
+                user_note
+            </isNotEmpty>
+        </dynamic>
+        VALUES
+        <dynamic prepend="(" close=")">
+            <isNotEmpty prepend="," property="id">
+                #id#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userName">
+                substring(#userName#,1,50)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userPhoneNumber">
+                substring(#userPhoneNumber#,1,15)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userPassword">
+                substring(#userPassword#,1,50)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="modifyDate">
+                #modifyDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userRealName">
+                substring(#userRealName#,1,50)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userSex">
+                substring(#userSex#,1,4)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userIdcard">
+                substring(#userIdcard#,1,18)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userWeiboId">
+                substring(#userWeiboId#,1,40)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userQqId">
+                substring(#userQqId#,1,40)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userIcon">
+                substring(#userIcon#,1,500)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userAlipay">
+                substring(#userAlipay#,1,40)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userBankCard">
+                substring(#userBankCard#,1,40)
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="status">
+                #status#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="createDate">
+                #createDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="loginTimes">
+                #loginTimes#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="lastLoginDate">
+                #lastLoginDate#
+            </isNotEmpty>
+            <isNotEmpty prepend="," property="userNote">
+                substring(#userNote#,1,500)
+            </isNotEmpty>
+        </dynamic>
+    </insert>
+
+</sqlMap>
