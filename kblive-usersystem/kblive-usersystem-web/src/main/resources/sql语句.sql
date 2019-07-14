@@ -1,4 +1,4 @@
-20190713
+#20190713
 ALTER TABLE `kblive`.`kblive_user` ADD COLUMN `user_password` varchar(50) NULL ;
 ALTER TABLE `kblive`.`kblive_user` ADD COLUMN `user_realname` varchar(50) NULL ;
 ALTER TABLE `kblive`.`kblive_user` ADD COLUMN `user_sex` varchar(4) NULL ;
