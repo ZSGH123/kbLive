@@ -8,13 +8,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>KB直播-主播认证</title>
 		
-		<link rel="shortcut icon" href="img/kblivelogo.png" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="css/jquery.vidbacking.min.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-		<link rel="stylesheet" href="css/live.css" type="text/css" />
+		<link rel="shortcut icon" href="/img/kblivelogo.png" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="/css/jquery.vidbacking.min.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="/css/live.css" type="text/css" />
 		
-		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript" src="js/jquery.vidbacking.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.vidbacking.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$('body').vidbacking({

@@ -4,9 +4,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>看吧登陆</title>
-		<link href="css/login.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="/img/kblivelogo.png" type="image/x-icon" />
+		<link href="/css/login.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="js/login.js" ></script>
+        <script type="text/javascript" src="/js/login.js" ></script>
 	</head>
 	<body>
 		<div id="box">

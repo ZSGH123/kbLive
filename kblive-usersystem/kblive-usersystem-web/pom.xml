@@ -172,7 +172,7 @@
     </profiles>
 
     <build>
-        <!-- <finalName>kblive-usersystem-web</finalName>-->
+        <finalName>kblive-usersystem</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
