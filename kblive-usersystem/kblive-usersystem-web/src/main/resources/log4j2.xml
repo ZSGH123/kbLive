@@ -24,7 +24,7 @@
     <appender name="log4jDebug" class="org.apache.log4j.rolling.RollingFileAppender">
         <param name="Append" value="true"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-            <param name="FileNamePattern" value="${kblive-usersystem}/log/logDebug_%d{yyyy-MM-dd}.log"/>
+            <param name="FileNamePattern" value="${catalina.home}/log/logDebug_%d{yyyy-MM-dd}.log"/>
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -45,7 +45,7 @@
     <appender name="log4jInfo" class="org.apache.log4j.rolling.RollingFileAppender">
         <param name="Append" value="true"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-            <param name="FileNamePattern" value="${kblive-usersystem}/log/logInfo_%d{yyyy-MM-dd}.log"/>
+            <param name="FileNamePattern" value="${catalina.home}/log/logInfo_%d{yyyy-MM-dd}.log"/>
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -114,7 +114,7 @@
     <!-- 输出日志到文件 -->
     <appender name="fileAppender" class="org.apache.log4j.FileAppender">
         <!-- 输出文件全路径名-->
-        <param name="File" value="${webapp.root}/log/fileAppender_%d{yyyy-MM-dd}.log"/>
+        <param name="File" value="${catalina.home}/log/fileAppender_%d{yyyy-MM-dd}.log"/>
         <!--是否在已存在的文件追加写：默认时true，若为false则每次启动都会删除并重新新建文件-->
         <param name="Append" value="true"/>
         <param name="Threshold" value="INFO"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" >
-<!--test-->
+    <!--test-->
     <!-- ========================== 自定义输出格式说明================================ -->
     <!-- %p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL -->
     <!-- %r 输出自应用启动到输出该log信息耗费的毫秒数  -->
@@ -24,7 +24,7 @@
     <appender name="log4jDebug" class="org.apache.log4j.rolling.RollingFileAppender">
         <param name="Append" value="true"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-            <param name="FileNamePattern" value="${kblive-usersystem}/log/logDebug_%d{yyyy-MM-dd}.log"/>
+            <param name="FileNamePattern" value="${catalina.home}/log/logDebug_%d{yyyy-MM-dd}.log"/>
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -45,7 +45,7 @@
     <appender name="log4jInfo" class="org.apache.log4j.rolling.RollingFileAppender">
         <param name="Append" value="true"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-            <param name="FileNamePattern" value="${kblive-usersystem}/log/logInfo_%d{yyyy-MM-dd}.log"/>
+            <param name="FileNamePattern" value="${catalina.home}/log/logInfo_%d{yyyy-MM-dd}.log"/>
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
@@ -114,7 +114,7 @@
     <!-- 输出日志到文件 -->
     <appender name="fileAppender" class="org.apache.log4j.FileAppender">
         <!-- 输出文件全路径名-->
-        <param name="File" value="${webapp.root}/log/fileAppender_%d{yyyy-MM-dd}.log"/>
+        <param name="File" value="${catalina.home}/log/fileAppender_%d{yyyy-MM-dd}.log"/>
         <!--是否在已存在的文件追加写：默认时true，若为false则每次启动都会删除并重新新建文件-->
         <param name="Append" value="true"/>
         <param name="Threshold" value="INFO"/>
@@ -148,13 +148,13 @@
 
     <!--通过<category></category>的定义可以将各个包中的类日志输出到不同的日志文件中-->
     <!--<category name="com.kdzs.usersystem.web">-->
-        <!--<priority value="debug"/>-->
-        <!--<appender-ref ref="log4jDebug" />-->
-        <!--<appender-ref ref="log4jInfo" />-->
-        <!--<appender-ref ref="log4jWarn" />-->
-        <!--<appender-ref ref="log4jError" />-->
-        <!--<appender-ref ref="fileAppender"/>-->
-        <!--<appender-ref ref="rollingAppender"/>-->
+    <!--<priority value="debug"/>-->
+    <!--<appender-ref ref="log4jDebug" />-->
+    <!--<appender-ref ref="log4jInfo" />-->
+    <!--<appender-ref ref="log4jWarn" />-->
+    <!--<appender-ref ref="log4jError" />-->
+    <!--<appender-ref ref="fileAppender"/>-->
+    <!--<appender-ref ref="rollingAppender"/>-->
     <!--</category>-->
     <!--
             1. 指定logger的设置，additivity是否遵循缺省的继承机制
