@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +39,12 @@ public class KbliveUserController extends BaseController {
         KbliveUser kbliveUser=getKbliveUser();
 
         return webResponse;
+    }
+
+    @RequestMapping(value = "tologin") //③处理方法对应的URL，相对于②处的URL
+    public String toLogin(Model model) {
+        System.out.println("去登陆页面"+model);
+        return "/login"; //④返回逻辑视图名
     }
 
     /**

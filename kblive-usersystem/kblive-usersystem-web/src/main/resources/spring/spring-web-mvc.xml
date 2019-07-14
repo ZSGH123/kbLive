@@ -40,14 +40,13 @@
     <bean id="sessionUserInteceptor" class="com.kblive.usersystem.web.interceptor.SessionUserInterceptor">
         <property name="excludeURIs">
             <list>
-                <value>/page/jsp/usermanager/login.jsp</value>
-                <value>/jsp/usermanager/tologin</value>
-                <value>/jsp/usermanager/login</value>
-                <value>/page/jsp/usermanager/register.jsp</value>
-                <value>/jsp/usermanager/toregister</value>
-                <value>/jsp/usermanager/register</value>
+                <value>/login.jsp</value>
+                <value>/kbliveUser/tologin</value>
+                <value>/kbliveUser/login</value>
+                <value>/register.jsp</value>
+                <value>/kbliveUser/toregister</value>
+                <value>/kbliveUser/register</value>
                 <value>http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css</value>
-                <value>/page/static</value>
             </list>
         </property>
     </bean>
