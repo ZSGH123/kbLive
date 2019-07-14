@@ -48,46 +48,216 @@
 
     </dependencies>
 
-    <build>
-        <finalName>kblive-usersystem-web</finalName>
-        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-            <plugins>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <configPath>src/main/resources/config/dev</configPath>
+                <webXmlPath>src/main/resources/config/dev/webxml</webXmlPath>
+            </properties>
+            <build>
+                <finalName>kblive-usersystem</finalName>
+                <filters>
+                    <filter>src/main/resources/profile/dev.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/config/dev</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                        <configuration>
+                            <webResources>
+                                <resource>
+                                    <directory>${webXmlPath}</directory>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
+        <profile>
+            <id>test</id>
+            <properties>
+                <configPath>src/main/resources/config/test</configPath>
+                <webXmlPath>src/main/resources/config/test/webxml</webXmlPath>
+            </properties>
+            <build>
+                <finalName>kblive-usersystem</finalName>
+                <filters>
+                    <filter>src/main/resources/profile/test.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/config/test</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                        <configuration>
+                            <webResources>
+                                <resource>
+                                    <directory>${webXmlPath}</directory>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>production</id>
+            <properties>
+                <configPath>src/main/resources/config/production</configPath>
+                <webXmlPath>src/main/resources/config/production/webxml</webXmlPath>
+            </properties>
+            <build>
+                <finalName>kblive-usersystem</finalName>
+                <filters>
+                    <filter>src/main/resources/profile/production.properties</filter>
+                </filters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/config/production</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                        <configuration>
+                            <webResources>
+                                <resource>
+                                    <directory>${webXmlPath}</directory>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <!-- <finalName>kblive-usersystem-web</finalName>-->
+        <pluginManagement>
+            <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${version.maven-clean-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${version.maven-resources-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>${version.maven-compiler-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
+                    <version>${version.maven-surefire-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.2</version>
+                    <version>${version.maven-war-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
+                    <version>${version.maven-install-plugin}</version>
                 </plugin>
-
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
+                    <version>${version.maven-deploy-plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <!-- 资源打包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+
+            <!-- 编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <!-- maven集成的tomcat插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <port>8080</port>
+                    <path>/</path>
+                    <uriEncoding>utf-8</uriEncoding>
+                    <systemProperties>
+                        <dev>true</dev>
+                        <init_appKey>123456</init_appKey>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+
+            <!-- 单元测试插件:跳过单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+
     </build>
 </project>
