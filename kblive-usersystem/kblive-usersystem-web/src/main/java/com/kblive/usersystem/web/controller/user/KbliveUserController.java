@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  KbliveUser Controller
@@ -31,16 +31,45 @@ public class KbliveUserController extends BaseController {
 
     /**
      * 保存
+     * RequestBody主要用来接收前端传递给后端的json字符串中的数据的(请求体中的数据的),Content-Type一定是：application/json，否则报415错误
      */
     @RequestMapping(value="saveKbliveUser")
     @ResponseBody
-    public WebResponse saveKbliveUser () throws Exception {
+    public WebResponse saveKbliveUser(@RequestParam(value = "userName", required = true) String name, @RequestParam String sex, @RequestBody(required = false) KbliveUser kbliveUser) throws Exception {
         WebResponse webResponse = new WebResponse();
-        KbliveUser kbliveUser=getKbliveUser();
-
+        KbliveUser kbliveUserS = getKbliveUser();
+        System.out.println(name);
+        Map<String, Object> resMap = new HashMap<String, Object>();
+        resMap.put("name", name);
+        resMap.put("sex", sex);
+        resMap.put("kbliveUser", kbliveUser);
+        webResponse.setData(resMap);
         return webResponse;
     }
 
+    @RequestMapping(value = "testKbliveUser")
+    @ResponseBody
+    public WebResponse testKbliveUser(@RequestParam(value = "userName", required = true) String name, @RequestParam(required = false) KbliveUser kbliveUser) throws Exception {
+        WebResponse webResponse = new WebResponse();
+        System.out.println(name);
+        Map<String, Object> resMap = new HashMap<String, Object>();
+        resMap.put("name", name);
+        resMap.put("kbliveUser", kbliveUser);
+        webResponse.setData(resMap);
+        return webResponse;
+    }
+
+    @RequestMapping(value = "test")
+    @ResponseBody
+    public WebResponse test(@RequestParam(value = "userName", required = true) String name, @RequestParam String sex) throws Exception {
+        WebResponse webResponse = new WebResponse();
+        System.out.println(name);
+        Map<String, Object> resMap = new HashMap<String, Object>();
+        resMap.put("name", name);
+        resMap.put("sex", sex);
+        webResponse.setData(resMap);
+        return webResponse;
+    }
     @RequestMapping(value = "tologin") //③处理方法对应的URL，相对于②处的URL
     public String toLogin(Model model) {
         System.out.println("去登陆页面"+model);

@@ -24,23 +24,24 @@ public class SessionUserInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session=request.getSession(true);
-        boolean isExcludeUrl = false;
-        String url = request.getRequestURI();
-        if (excludeURIs != null) {
-            for (String uri : excludeURIs) {
-                if (url.contains(uri)) {
-                    isExcludeUrl = true;
-                    break;
-                }
-            }
-        }
-
-        if(url.contains(".js") || url.contains(".css") || url.contains(".woff2")||url.contains(".woff")||url.contains(".ttf")){
-            isExcludeUrl = true;
-        }
-        if (!isExcludeUrl) {
-                return false;
-        }
+//        boolean isExcludeUrl = false;
+//        String url = request.getRequestURI();
+//        if (excludeURIs != null) {
+//            for (String uri : excludeURIs) {
+//                if (url.contains(uri)) {
+//                    isExcludeUrl = true;
+//                    break;
+//                }
+//            }
+//        }
+//
+//        if(url.contains(".js") || url.contains(".css") || url.contains(".woff2")||url.contains(".woff")
+//                ||url.contains(".ttf")||url.contains(".png")||url.contains(".jpg")){
+//            isExcludeUrl = true;
+//        }
+//        if (!isExcludeUrl) {
+//                return false;
+//        }
         return super.preHandle(request, response, handler);
     }
 
