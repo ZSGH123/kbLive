@@ -21,6 +21,13 @@ public class KbliveUserService {
     @Resource
     KbliveUserDAO kbliveUserDAO;
 
+    public void setKbliveUserDAO(KbliveUserDAO kbliveUserDAO) {
+        this.kbliveUserDAO = kbliveUserDAO;
+    }
+
+    public String test() {
+        return kbliveUserDAO.test();
+    }
     /**
      * 插入
      */

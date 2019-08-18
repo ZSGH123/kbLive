@@ -2,11 +2,25 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:task="http://www.springframework.org/schema/task"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="test-bean.xml"/>
+    <!--    让@Resource和@Autowired生效的几种方式-->
+    <!--    1.在xml配置文件中显式指定-->
+    <!--    为了使用Autowired标签，我们必须在这里配置一个bean的后置处理器 &ndash;&gt;-->
+    <!--    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />-->
+    <!--    为了使用@Resource标签，这里必须配置一个后置处理器 &ndash;&gt;-->
+    <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />-->
+    <!--    2.在xml配置文件中使用context:annotation-config-->
+    <!--    <context:annotation-config />-->
+    <!--    3.在xml配置文件中使用context:component-scan-->
+    <!--    <context:component-scan base-package="com.baobaotao.anno"/>-->
+    <!--    4.重写Spring容器的Context,在自定义BeanFactory时调用AnnotationConfigUtils.registerAnnotationConfigProcessors()把这两个注解处理器增加到容器中。-->
+    <!--    -->
+
     <context:annotation-config/>
 
     <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
@@ -28,5 +42,44 @@
         </property>
     </bean>
 
+    <!--当spring-bean配置文件中有多个类型相同的bean时，一定要使用id或qualifier来区分他们，否则使用@Autowired注解来注入bean的时候会报错-->
+    <bean id="userService1" class="com.kblive.usersystem.services.user.UserService">
+
+    </bean>
+
+    <bean class="com.kblive.usersystem.services.user.UserService">
+        <qualifier value="userService2">
+        </qualifier>
+    </bean>
+
+    <!-- 非静态工厂方法:工厂方法是非静态的，即必须实例化工厂类后才能调用工厂方法。
+    容器中的bean本身就是工厂，其作用是产生其它bean实例,
+    作用是产生其他bean实例。通常情况下，这种bean没有什么特别的要求，仅需要提供一个工厂方法，
+    该方法用来返回其他bean实例。由工厂bean产生的其他bean实例，不再由Spring容器产生，
+    因此与普通bean的配置不同，不再需要提供class元素。-->
+    <bean id="carFactory" class="com.kblive.usersystem.web.car.CarFactory">
+    </bean>
+    <bean id="car" factory-bean="carFactory" factory-method="createHongQiCar">
+    </bean>
+    <!--工厂类都是静态的，这意味着用户在无须创建工厂类实例的情况下就可以调用工厂类方法，因此，静态工厂方法比非静态工厂方法的调用更加方便。-->
+    <bean id="car6" class="com.kblive.usersystem.web.car.CarFactory"
+          factory-method="createCar">
+    </bean>
+
+    <bean id="bizAspectBean12" class="com.kblive.usersystem.web.aspect.Biz">
+    </bean>
+
+    <!--aop 配置-->
+    <aop:config>
+        <aop:aspect id="bizAspect" ref="bizAspectBean12">
+            <aop:pointcut id="bizPointCut" expression="execution(* com.kblive.usersystem.dao.*.*.*(..))"/>
+            <aop:before pointcut-ref="bizPointCut" method="before"/>
+            <aop:after pointcut-ref="bizPointCut" method="after"/>
+            <aop:after-returning pointcut-ref="bizPointCut" method="afterReturning"/>
+            <aop:around pointcut-ref="bizPointCut" method="around"/>
+            <aop:after-throwing pointcut-ref="bizPointCut" method="afterThrowing"/>
+        </aop:aspect>
+
+    </aop:config>
 
 </beans>

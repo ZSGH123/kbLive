@@ -19,6 +19,10 @@ import java.util.Map;
 public class KbliveUserDAO extends MysdalBaseDao {
 
 
+    public String test() {
+        System.out.println("调用 KbliveUserDAO 的test方法");
+        return "调用 KbliveUserDAO 的test方法";
+    }
     /**
      * 添加
      */

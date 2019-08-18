@@ -3,9 +3,13 @@ package com.kblive.usersystem.web.controller.user;
 import javax.annotation.Resource;
 
 import com.kblive.usersystem.model.user.KbliveUser;
+import com.kblive.usersystem.services.user.IUserService;
 import com.kblive.usersystem.services.user.KbliveUserService;
 import com.kblive.usersystem.web.api.base.BaseController;
 import com.kblive.usersystem.web.api.response.WebResponse;
+import com.kblive.usersystem.web.car.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -15,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +33,28 @@ public class KbliveUserController extends BaseController {
 
     @Resource
     KbliveUserService kbliveUserService;
+
+    @Qualifier("userService2")
+    @Autowired
+    IUserService userService;
+
+    @Autowired
+    IUserService userService1;
+
+    @Autowired
+    List<IUserService> list;
+
+    @Autowired
+    @Qualifier("car")
+    Car car;
+
+    @RequestMapping(value = "check")
+    @ResponseBody
+    public WebResponse check() {
+        WebResponse webResponse = new WebResponse();
+        webResponse.setData(kbliveUserService.test());
+        return webResponse;
+    }
 
     /**
      * 保存
