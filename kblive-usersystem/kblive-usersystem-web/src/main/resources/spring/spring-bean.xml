@@ -56,7 +56,8 @@
     <!--aop 配置-->
     <aop:config>
         <aop:aspect id="bizAspect" ref="bizAspectBean12">
-            <aop:declare-parents types-matching="com.kblive.usersystem.dao.*.*+"
+            <!--允许一个切面声明一個实现指定接口的通知对象，并提供了一個接口实现类来代替这些对象-->
+            <aop:declare-parents types-matching="com.kblive.usersystem.web.aspect.*+"
                                  implement-interface="com.kblive.usersystem.web.aspect.IBiz"
                                  default-impl="com.kblive.usersystem.web.aspect.BizImpl"/>
             <aop:pointcut id="bizPointCut" expression="execution(* com.kblive.usersystem.dao.*.*.*(..))"/>
@@ -70,5 +71,60 @@
         </aop:aspect>
 
     </aop:config>
+
+    <bean id="afterAdvice" class="com.kblive.usersystem.web.proxy.proxyinterfce.AfterAdvice">
+    </bean>
+    <bean id="beforeAdvice" class="com.kblive.usersystem.web.proxy.proxyinterfce.BeforeAdvice">
+    </bean>
+    <bean id="methodInterceptor" class="com.kblive.usersystem.web.proxy.proxyinterfce.MethodInterceptor">
+    </bean>
+
+    <bean id="studentTarget" class="com.kblive.usersystem.web.proxy.proxyinterfce.StudentImpl">
+    </bean>
+
+    <!--使用spring api-NameMatchMethodPointcut定义一個切入点-->
+    <bean id="pointCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedNames">
+            <list>
+                <value>sa*</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        使用spring api-DefaultBeanFactoryPointcutAdvisor定义一默认的advisor,
+        使得只有调用匹配到切点里面的方法时才调用通知
+     -->
+    <bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor">
+        <property name="advice" ref="beforeAdvice">
+        </property>
+        <property name="pointcut" ref="pointCut">
+        </property>
+    </bean>
+
+    <!--
+        1.使用ProxyFactoryBean或者其它IoC相关类来创建AOP代理的最重要好处是通知和切入点也可以由IoC来管理
+        2.被代理类没有实现任何接口,使用CGLIB代理,否则JDK代理,通过设置proxyTargetClass为true ,可强制使用CGLIB
+        3.如果目标类实现了一-个(或者多个)接口,那么创建代理的类型将依赖ProxyFactoryBean的配置
+        4.如果ProxyFactoryBean的proxyInterfaces属性被设置为一个或者多个全限定接口名,基于JDK的代理将被创建
+        5.如果ProxyFactoryBean的proxyInterfaces属性没有被设置,但是目标类实现了- -个(或者更多)接口,那么
+          ProxyFactoryBean将自动检测到这个目标类已经实现了至少一个接口,创建-个基于JDK的代理。
+     -->
+    <bean id="studentProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="studentTarget">
+        </property>
+        <property name="proxyInterfaces" value="com.kblive.usersystem.web.proxy.proxyinterfce.IStudent">
+        </property>
+        <property name="proxyTargetClass" value="true">
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>defaultAdvisor</value>
+                <value>beforeAdvice</value>
+                <value>methodInterceptor</value>
+                <value>afterAdvice</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>

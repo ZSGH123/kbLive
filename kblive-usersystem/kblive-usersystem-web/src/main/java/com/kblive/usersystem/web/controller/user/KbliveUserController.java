@@ -8,8 +8,10 @@ import com.kblive.usersystem.services.user.KbliveUserService;
 import com.kblive.usersystem.web.api.base.BaseController;
 import com.kblive.usersystem.web.api.response.WebResponse;
 import com.kblive.usersystem.web.car.Car;
+import com.kblive.usersystem.web.proxy.proxyinterfce.IStudent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -48,10 +50,15 @@ public class KbliveUserController extends BaseController {
     @Qualifier("car")
     Car car;
 
+    @Resource(name = "studentProxy")
+    IStudent iStudent;
+
     @RequestMapping(value = "check")
     @ResponseBody
     public WebResponse check() {
         WebResponse webResponse = new WebResponse();
+        iStudent.save();
+        //iStudent.saveTest();
         webResponse.setData(kbliveUserService.test());
         return webResponse;
     }
