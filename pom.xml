@@ -48,6 +48,7 @@
         <version.fastjson>1.2.7</version.fastjson>
         <version.commons.beanutils>1.9.2</version.commons.beanutils>
         <version.commons.io>2.4</version.commons.io>
+        <version.commons.pool2>2.6.0</version.commons.pool2>
         <version.slf4japi>1.7.7</version.slf4japi>
         <version.ibatis>2.3.4.726</version.ibatis>
         <version.cobar>2.2.4-SNAPSHOT</version.cobar>
@@ -72,10 +73,25 @@
         <!--阿里云短信验证-->
         <version.com.aliyun>3.3.1</version.com.aliyun>
 
+        <!--jedis配置-->
+        <version.jedis>2.9.0</version.jedis>
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${version.commons.pool2}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${version.jedis}</version>
+            </dependency>
 
             <!-- cache -->
             <dependency>
@@ -592,6 +608,16 @@
         <dependency>
             <groupId>com.alibaba.cobar</groupId>
             <artifactId>cobar-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
 
     </dependencies>
