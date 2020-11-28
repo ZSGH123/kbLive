@@ -23,7 +23,7 @@ public class JedisTest {
     @Test
     public void jedisTest() {
         //Jedis jedis=new Jedis("106.15.176.198",6379);
-        Jedis jedis = new Jedis("s.zkong.xyz", 6379);
+        Jedis jedis = new Jedis("106.15.176.198", 6379);
         jedis.auth("zkong");
 
         jedis.set("name", "zkong");
@@ -36,7 +36,7 @@ public class JedisTest {
     @Before
     public void setJedis() {
         //连接redis服务器(在这里是连接本地的)
-        jedis = new Jedis("s.zkong.xyz", 6379);
+        jedis = new Jedis("106.15.176.198", 6379);
         //权限认证
         jedis.auth("zkong");
         System.out.println("连接服务成功");
